@@ -1,8 +1,9 @@
 
-package com.assignment.spring.api;
+package com.assignment.spring.dto;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,11 +13,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "temp",
-    "pressure",
-    "humidity",
-    "temp_min",
-    "temp_max"
+        "temp",
+        "pressure",
+        "humidity",
+        "temp_min",
+        "temp_max"
 })
 public class Main {
 
@@ -31,7 +32,7 @@ public class Main {
     @JsonProperty("temp_max")
     private Double tempMax;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @JsonProperty("temp")
     public Double getTemp() {

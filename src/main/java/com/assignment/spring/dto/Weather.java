@@ -1,35 +1,37 @@
 
-package com.assignment.spring.api;
+package com.assignment.spring.dto;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Data;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "all"
+        "id",
+        "main",
+        "description",
+        "icon"
 })
-public class Clouds {
+@Data
+public class Weather {
 
-    @JsonProperty("all")
-    private Integer all;
+    @JsonProperty("id")
+    private Integer id;
+    @JsonProperty("main")
+    private String main;
+    @JsonProperty("description")
+    private String description;
+    @JsonProperty("icon")
+    private String icon;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    @JsonProperty("all")
-    public Integer getAll() {
-        return all;
-    }
-
-    @JsonProperty("all")
-    public void setAll(Integer all) {
-        this.all = all;
-    }
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
