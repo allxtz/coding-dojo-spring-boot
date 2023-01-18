@@ -84,7 +84,7 @@ public class WeatherControllerTest {
 
     @Test
     public void getWeather_fail() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/weather/buc")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/weather/buc")
                         .with(httpBasic("admin", "test"))
                         .accept(MediaType.ALL))
                 .andExpect(status().isUnauthorized());
@@ -94,7 +94,7 @@ public class WeatherControllerTest {
     public void getWeather_success() throws Exception {
         when(weatherService.insertEntity(Mockito.any())).thenReturn(response);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/weather/buc")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/weather/buc")
                         .with(httpBasic("admin", "password"))
                         .accept(MediaType.ALL))
                 .andExpect(status().isOk());

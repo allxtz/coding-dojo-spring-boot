@@ -29,7 +29,7 @@ public class WeatherController {
         this.restUrl = url;
     }
 
-    @PostMapping("/weather/{city}")
+    @GetMapping("/weather/{city}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "get weather for city")
     public WeatherResponse weather(@Pattern(regexp = "^[a-zA-Z]+(?:[\\s-][a-zA-Z]+)*$", message = "city doesn't have a valid format")
